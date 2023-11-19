@@ -60,7 +60,7 @@ export default function Login() {
           <img src={logo} alt="Gera pix" width="200" />
           <p className="text-center"> Faça seu login e cria sua conta PIX.
             Simples rápido e fácil. Caso não tenha conta basta
-            <Link className="btn btn-link" to="/signup">clicar aqui</Link>e crirar uma.
+            <Link className="btn btn-link" to="/signup">clicar aqui</Link>e criar uma.
           </p>
 
           <p className="text-center mb-4 mt-4">ENTRAR NA CONTA</p>

@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 import 'firebase/database'
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { Alert, Button, Card, Form } from "react-bootstrap"
 import { Link, useHistory } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
@@ -58,7 +58,7 @@ export default function UpData() {
   // fim do Atualizar database
 
   return (
-    <>
+    <Fragment>
       <Card className="text-center shadow bg-secondary rounded p-3">
         <div className="w-100 text-right">
           <Button className="mr-03 badge badge-secondary" variant="link" onClick={handleLogout}>
@@ -112,6 +112,6 @@ export default function UpData() {
         </div>
       </Card.Footer>
 
-    </>
+    </Fragment>
   )
 }

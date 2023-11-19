@@ -20,6 +20,7 @@ export default function GenerationQRCode() {
   const [textId, setTextId] = useState('');
   const [message, setMessage] = useState('');
   const [show, setShow] = useState(false);
+
   const id = useParams().idKey;
 
   const { logout } = useAuth();
@@ -27,10 +28,18 @@ export default function GenerationQRCode() {
 
   const user = firebase.auth().currentUser;
   // Recuperara dados do realtime database 
+
   const clientsRef = firebase.database().ref();
   const chaveRef = firebase.database().ref();
+
   async function GetData() {
-    const clientList = await clientsRef.child(`clients/${user.uid}/PixCreated/${id}`).get();
+    let clientList = {};
+    if(!user){
+      clientList = await clientsRef.orderByChild("PixCreated").equalTo(`${id}`).get();
+    }else{
+      clientList = await clientsRef.child(`clients/${user.uid}/PixCreated/${id}`).get();      
+    }
+
     const valorPix = clientList.val().valorPix;
     const message = clientList.val().message;
     const textId = clientList.val().textId;
@@ -123,10 +132,13 @@ export default function GenerationQRCode() {
         </div>
 
         <div>
-          <small> Parar: {name}</small>
+          <small> Pagar: {name}</small>
         </div>
         <div>
-          <small>Valor: {valorPix}</small>
+          <small>Valor: R$ {valorPix}</small>
+        </div>
+        <div>
+          <small>Identificação: {textId}</small>
         </div>
         
     

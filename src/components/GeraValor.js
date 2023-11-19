@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import 'firebase/database';
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import CurrencyInput from "react-currency-input-field";
 import { Link, useHistory } from "react-router-dom";
@@ -13,15 +13,22 @@ export default function GerarValor() {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
   const [newPix, setPix] = useState();
-  const [newTextId, setTextId] = useState('Gerapix');
-  const [newMessage, setMessage] = useState('Gerapix');
+  const [newTextId, setTextId] = useState('GeraPix.netlify.app');
+  const [newMessage, setMessage] = useState('GeraPix.netlify.app');
+  
   const handleChange = (e) => {
     e.preventDefault();
     const { value = "" } = e.target;
     const parsedValue = value.replace(/[^\d.]/gi, "");
     setPix(parsedValue);
   };
-  const handleOnBlur = () => setPix(Number(newPix).toFixed(2));
+  
+  const handleOnBlur = () => {
+    // Formatação para garantir que o zero seja mantido antes do valor de centavos
+    const formattedValue = parseFloat(newPix).toFixed(2);
+    setPix(formattedValue);
+  };
+  
   //logout incio 
   async function handleLogout() {
     setError("")
@@ -54,7 +61,7 @@ export default function GerarValor() {
   };
  
   return (
-    <>
+    <Fragment>
       <Card className="text-white  shadow  bg-secondary rounded mb-2">
         <div className="w-100 text-right">
           <Button className="mr-03 badge badge-secondary" variant="link" onClick={handleLogout}>
@@ -108,6 +115,6 @@ export default function GerarValor() {
           </Link>
         </div>
       </Card.Footer>
-    </>
+    </Fragment>
   )
 }

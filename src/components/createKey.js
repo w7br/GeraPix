@@ -7,7 +7,7 @@ import { useAuth } from "../contexts/AuthContext"
 import logo from '../image/logo.png'
 
 
-export default function CreatKey() {
+export default function CreateKey() {
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const history = useHistory()
@@ -48,7 +48,7 @@ export default function CreatKey() {
       createdAt: new Date().toLocaleString().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
     };
     await firebase.database().ref(`clients/${user?.uid}/key`).push(firebaseClient);
-    history.push("/GerarValor")
+    history.push("/GerarValor");
   }
   // fim do criar database
   return (

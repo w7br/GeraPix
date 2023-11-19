@@ -1,8 +1,8 @@
 import React from "react"
 import { Container } from "react-bootstrap"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { AuthProvider } from "../contexts/AuthContext"
-import createKey from "./createKey"
+import { AuthProvider } from "../contexts/AuthContext";
+import CreateKey from "./CreateKey";
 import ForgotPassword from "./ForgotPassword"
 import GerarValor from "./GeraValor"
 import Login from "./Login"
@@ -12,7 +12,7 @@ import GenerationQRCode from "./QRCode"
 import Signup from "./Signup"
 import UpData from "./UpdateData"
 import UpdateProfile from "./UpdateProfile"
-
+import './style.css';
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
-              <Route path="/createKey" component={createKey} />
+              <Route path="/Creatkey" component={CreateKey} />
               <Route path="/forgot-password" component={ForgotPassword} />
               <Route path="/UpData" component={UpData} />
               <Route path="/GerarValor" component={GerarValor} />

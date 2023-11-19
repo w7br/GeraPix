@@ -49,7 +49,7 @@ export default function Profile() {
     );
     // ver dados do realtime database redirecionar para a pagina de valor
     if (chaveRes.val() === null) {
-      history.push("/Creatkey")
+      history.push("/UpData")
     } else {
       history.push("/GerarValor")
     
