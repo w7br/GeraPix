@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"  # ou o comando que você usa para construir seu projeto
+  publish = "public"  # ou o diretório onde seus arquivos construídos são armazenados
+
+[dev]
+  command = "npm run start"  # comando para iniciar o servidor de desenvolvimento local
