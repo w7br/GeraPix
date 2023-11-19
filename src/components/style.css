@@ -1,0 +1,6 @@
+.bg-secondary {
+    background-color: #1c7632;
+}
+.text-center.shadow.bg-secondary.rounded.p-3.card {
+    background-color: #07b14f !important;
+}
