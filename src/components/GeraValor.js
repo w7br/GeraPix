@@ -15,20 +15,13 @@ export default function GerarValor() {
   const [newPix, setPix] = useState();
   const [newTextId, setTextId] = useState('GeraPix.netlify.app');
   const [newMessage, setMessage] = useState('GeraPix.netlify.app');
-  
   const handleChange = (e) => {
     e.preventDefault();
     const { value = "" } = e.target;
     const parsedValue = value.replace(/[^\d.]/gi, "");
     setPix(parsedValue);
   };
-  
-  const handleOnBlur = () => {
-    // Formatação para garantir que o zero seja mantido antes do valor de centavos
-    const formattedValue = parseFloat(newPix).toFixed(2);
-    setPix(formattedValue);
-  };
-  
+  const handleOnBlur = () => setPix(Number(newPix).toFixed(2));
   //logout incio 
   async function handleLogout() {
     setError("")
