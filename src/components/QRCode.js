@@ -138,7 +138,7 @@ export default function GenerationQRCode() {
           <small>Valor: R$ {valorPix}</small>
         </div>
         <div>
-          <small>Identificação: {textId}</small>
+          <small>Identificador: {textId}</small>
         </div>
         
     
