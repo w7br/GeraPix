@@ -142,7 +142,6 @@ export default function GerarValor() {
                 onBlur={handleOnBlur}
                 placeholder="R$ 0,00"
               />
-              <IntlCurrencyInput currency="BRL" config={currencyConfig} onChange={handleInput} className='left' value={valor} required />
 
 
               <small className="form-text text-right text-muted">Digite um Identificador da venda (txid) </small>
