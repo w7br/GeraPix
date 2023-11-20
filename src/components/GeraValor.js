@@ -131,12 +131,12 @@ export default function GerarValor() {
                 name="newPix"
                 id="newPix"
                 value={newPix}
-                placeholder="R$ 0,00"
-                decimalScale={2}
-                fixedDecimalScale
-                prefix="R$"
-                onValueChange={handleChange}
+                allowDecimals
+                decimalSeparator=","
+                decimalsLimit={2}
+                onChange={handleChange}
                 onBlur={handleOnBlur}
+                placeholder="R$ 0,00"
               />
 
 
