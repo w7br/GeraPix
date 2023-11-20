@@ -129,8 +129,9 @@ export default function GerarValor() {
               <CurrencyInput
                 className="form-control"
                 name="newPix"
-                placeholder="R$ 0,00"
+                id="newPix"
                 value={newPix}
+                placeholder="R$ 0,00"
                 decimalScale={2}
                 fixedDecimalScale
                 prefix="R$"
