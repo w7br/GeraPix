@@ -39,6 +39,7 @@ export default function GerarValor() {
   };
   
   
+  
   //logout incio 
   async function handleLogout() {
     setError("")
@@ -93,18 +94,16 @@ export default function GerarValor() {
               <small className="form-text text-muted">R${newPix} Digite o valor do PIX </small>
               <CurrencyInput
                 className="form-control"
-                data-number-to-fixed="2"
-                data-number-stepfactor="100"
                 name="newPix"
                 id="newPix"
                 value={newPix}
-                disableAbbreviations
                 allowDecimals
-                decimalsLimit="2"
-                fixedDecimalLength="2"
+                decimalsLimit={2}
                 onChange={handleChange}
                 onBlur={handleOnBlur}
-                placeholder="R$ 0.00" />
+                placeholder="R$ 0.00"
+              />
+
 
               <small className="form-text text-right text-muted">Digite um Identificador da venda (txid) </small>
               <Form.Control type="text" name="newTextId" required placeholder="Digite um Identificador da venda"
