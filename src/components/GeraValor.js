@@ -3,7 +3,6 @@ import 'firebase/database';
 import React, { useState, Fragment } from "react";
 import { Alert, Button, Card, Form } from "react-bootstrap";
 import CurrencyFormat from "react-currency-format";
-import IntlCurrencyInput from "react-intl-currency-input";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import logo from '../image/logo.png';
@@ -134,8 +133,8 @@ export default function GerarValor() {
               <small className="form-text text-muted">R${newPix} Digite o valor do PIX </small>
               <CurrencyFormat
                 className="form-control"
-                name="newPix2"
-                id="newPix2"
+                name="newPix"
+                id="newPix"
                 value={newPix}
                 decimalScale={2}
                 prefix="R$"
@@ -143,7 +142,7 @@ export default function GerarValor() {
                 onBlur={handleOnBlur}
                 placeholder="R$ 0,00"
               />
-              <IntlCurrencyInput id="newPix" name="newPix" currency="BRL" config={currencyConfig} onChange={handleChange} className='left' value={newPix} required />
+              <IntlCurrencyInput currency="BRL" config={currencyConfig} onChange={handleInput} className='left' value={valor} required />
 
 
               <small className="form-text text-right text-muted">Digite um Identificador da venda (txid) </small>
