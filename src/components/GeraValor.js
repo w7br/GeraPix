@@ -22,12 +22,13 @@ export default function GerarValor() {
   //   setPix(parsedValue);
   // };
   // const handleOnBlur = () => setPix(Number(newPix).toFixed(2));
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { value = "" } = e.target;
-    const parsedValue = value.replace(/[^\d.]/gi, "");
-    setPix(parsedValue);
-  };
+
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   const { value = "" } = e.target;
+  //   const parsedValue = value.replace(/[^\d.]/gi, "");
+  //   setPix(parsedValue);
+  // };
   
   // const handleOnBlur = () => {
   //   // Formatação para garantir que o zero seja mantido antes do valor de centavos
@@ -37,6 +38,23 @@ export default function GerarValor() {
   
   //   setPix(formattedValue);
   // };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { value } = e.target;
+    
+    // Remover caracteres não numéricos, exceto o ponto decimal
+    const cleanedValue = value.replace(/[^\d.]/g, "");
+  
+    // Separar a parte inteira e decimal
+    const [integerPart, decimalPart] = cleanedValue.split('.');
+  
+    // Limitar a duas casas decimais e juntar novamente
+    const formattedValue = decimalPart ? `${integerPart}.${decimalPart.slice(0, 2)}` : integerPart;
+  
+    setPix(formattedValue);
+  };
+  
 
   const handleOnBlur = () => {
     // Substituir a vírgula por ponto e tentar converter newPix para um número
