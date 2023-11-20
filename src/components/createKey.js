@@ -7,7 +7,7 @@ import { useAuth } from "../contexts/AuthContext"
 import logo from '../image/logo.png'
 
 
-export default function CreateKey() {
+export default function CreateKeyFnc() {
   const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const history = useHistory()
