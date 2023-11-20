@@ -39,19 +39,41 @@ export default function GerarValor() {
   //   setPix(formattedValue);
   // };
 
+
   const handleChange = (e) => {
     if (e && e.target) {
-      const { value = "" } = e.target;
-      const parsedValue = value.replace(/[^\d.]/gi, "");
-      setPix(parsedValue);
+        const { value = "" } = e.target;
+        // Substituir vírgula por ponto antes de salvar no state
+        const parsedValue = value.replace(/,/g, ".");
+        setPix(parsedValue);
     }
-  };
+};
 
-  const handleOnBlur = () => {
+const handleOnBlur = () => {
     if (typeof newPix === 'string' && newPix !== '') {
-      setPix(Number(newPix).toFixed(2));
+        // Substituir vírgula por ponto antes de salvar no state
+        const valueWithPoint = newPix.replace(/,/g, ".");
+        setPix(Number(valueWithPoint).toFixed(2));
     }
-  };
+};
+
+
+
+
+
+  // const handleChange = (e) => {
+  //   if (e && e.target) {
+  //     const { value = "" } = e.target;
+  //     const parsedValue = value.replace(/[^\d.]/gi, "");
+  //     setPix(parsedValue);
+  //   }
+  // };
+
+  // const handleOnBlur = () => {
+  //   if (typeof newPix === 'string' && newPix !== '') {
+  //     setPix(Number(newPix).toFixed(2));
+  //   }
+  // };
   
   
   
