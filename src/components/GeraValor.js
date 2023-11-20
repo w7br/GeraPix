@@ -115,7 +115,6 @@ export default function GerarValor() {
                 id="newPix"
                 value={newPix}
                 decimalScale={2}
-                fixedDecimalScale
                 prefix="R$"
                 onChange={handleChange}
                 onBlur={handleOnBlur}
