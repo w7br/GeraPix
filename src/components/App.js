@@ -2,7 +2,7 @@ import React from "react"
 import { Container } from "react-bootstrap"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { AuthProvider } from "../contexts/AuthContext";
-import CreateKeyFnc from "./CreateKey";
+import CreateKeyFnc from "./CreateKeyFnc";
 import ForgotPassword from "./ForgotPassword"
 import GerarValor from "./GeraValor"
 import Login from "./Login"
@@ -30,7 +30,7 @@ function App() {
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
-              <Route path="/Createkey" component={CreateKeyFnc} />
+              <Route path="/criar-chave" component={CreateKeyFnc} />
               <Route path="/forgot-password" component={ForgotPassword} />
               <Route path="/UpData" component={UpData} />
               <Route path="/GerarValor" component={GerarValor} />
