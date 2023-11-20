@@ -31,9 +31,13 @@ export default function GerarValor() {
   
   const handleOnBlur = () => {
     // Formatação para garantir que o zero seja mantido antes do valor de centavos
-    const formattedValue = parseFloat(newPix).toFixed(2);
+    const formattedValue = newPix
+      ? newPix.replace(/^0+(\d+\.\d{0,2})?$/, "$1") // Remover zeros à esquerda, exceto antes do ponto
+      : "0.00"; // Valor padrão se vazio
+  
     setPix(formattedValue);
   };
+  
   
   //logout incio 
   async function handleLogout() {
