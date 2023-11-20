@@ -15,13 +15,26 @@ export default function GerarValor() {
   const [newPix, setPix] = useState();
   const [newTextId, setTextId] = useState('GeraPix.netlify.app');
   const [newMessage, setMessage] = useState('GeraPix.netlify.app');
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   const { value = "" } = e.target;
+  //   const parsedValue = value.replace(/[^\d.]/gi, "");
+  //   setPix(parsedValue);
+  // };
+  // const handleOnBlur = () => setPix(Number(newPix).toFixed(2));
   const handleChange = (e) => {
     e.preventDefault();
     const { value = "" } = e.target;
     const parsedValue = value.replace(/[^\d.]/gi, "");
     setPix(parsedValue);
   };
-  const handleOnBlur = () => setPix(Number(newPix).toFixed(2));
+  
+  const handleOnBlur = () => {
+    // Formatação para garantir que o zero seja mantido antes do valor de centavos
+    const formattedValue = parseFloat(newPix).toFixed(2);
+    setPix(formattedValue);
+  };
+  
   //logout incio 
   async function handleLogout() {
     setError("")
@@ -89,10 +102,11 @@ export default function GerarValor() {
                 onBlur={handleOnBlur}
                 placeholder="R$ 0.00" />
 
-              <small className="form-text text-right text-muted">Digite mensagem para o cliente </small>
+              <small className="form-text text-right text-muted">Digite um Identificador da venda (txid) </small>
               <Form.Control type="text" name="newTextId" required placeholder="Digite um Identificador da venda"
                 onChange={(event) => setTextId(event.target.value)} />
-              <small className="form-text text-right text-muted">Digite um identificador da venda </small>
+
+              <small className="form-text text-right text-muted">Informações adicionais (opcional) </small>
               <Form.Control type="text" name="newMessage" required placeholder="Mensagem para o cliente"
                 onChange={(event) => setMessage(event.target.value)} />
             </Form.Group>
