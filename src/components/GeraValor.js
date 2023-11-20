@@ -13,8 +13,8 @@ export default function GerarValor() {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
   const [newPix, setPix] = useState();
-  const [newTextId, setTextId] = useState('GeraPix.netlify.app');
-  const [newMessage, setMessage] = useState('GeraPix.netlify.app');
+  const [newTextId, setTextId] = useState('gera-pix-br.vercel.app');
+  const [newMessage, setMessage] = useState('gera-pix-br.vercel.app');
   // const handleChange = (e) => {
   //   e.preventDefault();
   //   const { value = "" } = e.target;
@@ -114,10 +114,11 @@ export default function GerarValor() {
                 id="newPix"
                 value={newPix}
                 allowDecimals
+                decimalSeparator=","
                 decimalsLimit={2}
                 onChange={handleChange}
                 onBlur={handleOnBlur}
-                placeholder="R$ 0.00"
+                placeholder="R$ 0,00"
               />
 
 
