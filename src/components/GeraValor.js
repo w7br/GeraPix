@@ -29,14 +29,30 @@ export default function GerarValor() {
     setPix(parsedValue);
   };
   
-  const handleOnBlur = () => {
-    // Formatação para garantir que o zero seja mantido antes do valor de centavos
-    const formattedValue = newPix
-      ? newPix.replace(/^0+(\d+\.\d{0,2})?$/, "$1") // Remover zeros à esquerda, exceto antes do ponto
-      : "0.00"; // Valor padrão se vazio
+  // const handleOnBlur = () => {
+  //   // Formatação para garantir que o zero seja mantido antes do valor de centavos
+  //   const formattedValue = newPix
+  //     ? newPix.replace(/^0+(\d+\.\d{0,2})?$/, "$1") // Remover zeros à esquerda, exceto antes do ponto
+  //     : "0.00"; // Valor padrão se vazio
   
-    setPix(formattedValue);
+  //   setPix(formattedValue);
+  // };
+
+  const handleOnBlur = () => {
+    // Substituir a vírgula por ponto e tentar converter newPix para um número
+    const numericValue = Number(newPix.replace(',', '.'));
+  
+    // Verificar se a conversão foi bem-sucedida e newPix é um número válido
+    if (!isNaN(numericValue)) {
+      // Se for um número válido, definir newPix formatado
+      setPix(numericValue.toFixed(2));
+    } else {
+      // Se a conversão falhar, tratar conforme necessário (por exemplo, definir como 0.00)
+      setPix("0.00");
+    }
   };
+  
+  
   
   
   
