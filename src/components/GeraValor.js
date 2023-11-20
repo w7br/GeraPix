@@ -40,33 +40,16 @@ export default function GerarValor() {
   // };
 
   const handleChange = (e) => {
-    e.preventDefault();
-    const { value } = e.target;
-    
-    // Remover caracteres não numéricos, exceto o ponto decimal
-    const cleanedValue = value.replace(/[^\d.]/g, "");
-  
-    // Separar a parte inteira e decimal
-    const [integerPart, decimalPart] = cleanedValue.split('.');
-  
-    // Limitar a duas casas decimais e juntar novamente
-    const formattedValue = decimalPart ? `${integerPart}.${decimalPart.slice(0, 2)}` : integerPart;
-  
-    setPix(formattedValue);
+    if (e && e.target) {
+      const { value = "" } = e.target;
+      const parsedValue = value.replace(/[^\d.]/gi, "");
+      setPix(parsedValue);
+    }
   };
-  
 
   const handleOnBlur = () => {
-    // Substituir a vírgula por ponto e tentar converter newPix para um número
-    const numericValue = Number(newPix.replace(',', '.'));
-  
-    // Verificar se a conversão foi bem-sucedida e newPix é um número válido
-    if (!isNaN(numericValue)) {
-      // Se for um número válido, definir newPix formatado
-      setPix(numericValue.toFixed(2));
-    } else {
-      // Se a conversão falhar, tratar conforme necessário (por exemplo, definir como 0.00)
-      setPix("0.00");
+    if (typeof newPix === 'string' && newPix !== '') {
+      setPix(Number(newPix).toFixed(2));
     }
   };
   
