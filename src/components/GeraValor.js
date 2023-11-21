@@ -13,8 +13,8 @@ export default function GerarValor() {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
   const [newPix, setPix] = useState();
-  const [newTextId, setTextId] = useState('');
-  const [newMessage, setMessage] = useState('');
+  const [newTextId, setTextId] = useState('gera-pix-br.vercel.app');
+  const [newMessage, setMessage] = useState('gera-pix-br.vercel.app');
   // const handleChange = (e) => {
   //   e.preventDefault();
   //   const { value = "" } = e.target;
