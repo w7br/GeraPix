@@ -49,7 +49,7 @@ export default class Pix {
 
     return this._getValue(
       this.ID_MERCHANT_ACCOUNT_INFORMATION,
-      gui + key + description
+      gui + key
     );
   }
 
