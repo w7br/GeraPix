@@ -147,7 +147,7 @@ export default function GenerationQRCode() {
         </Button>
       </Card.Footer>
 
-      <MercadoPago />
+      {/* <MercadoPago /> */}
 
     </>
   )
