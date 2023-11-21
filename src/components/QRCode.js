@@ -7,6 +7,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import logo from '../image/logo.png';
 import Pix from "./Pix";
+import MercadoPago from "./checaMP";
 
 const QRCode = require('qrcode.react');
 
@@ -145,6 +146,8 @@ export default function GenerationQRCode() {
         <Button className="bi bi-clipboard-check badge mr-08 Dark text-white" onClick={handToast}> COPIAR
         </Button>
       </Card.Footer>
+
+      <MercadoPago />
 
     </>
   )

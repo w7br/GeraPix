@@ -131,7 +131,7 @@ export default function GerarValor() {
                 onChange={(event) => setTextId(event.target.value)} />
 
               <small className="form-text text-right text-muted">Informações adicionais (opcional) </small>
-              <Form.Control type="text" name="newMessage" required placeholder="Mensagem para o cliente"
+              <Form.Control type="text" name="newMessage" required placeholder="Informação adicional"
                 onChange={(event) => setMessage(event.target.value)} />
             </Form.Group>
             <Button onClick={handCreatPix} className="w-100" type="submit">
